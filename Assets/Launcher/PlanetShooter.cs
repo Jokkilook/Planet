@@ -50,4 +50,19 @@ public class PlanetShooter : MonoBehaviour
         rb.gameObject.SetActive(false);
         projectilePool.Enqueue(rb);
     }
+
+    public Vector3[] CalculateTrajectory(Vector3 startPos, Vector3 startVelocity, int steps = 30, float timeStep = 0.05f)
+    {
+        Vector3[] points = new Vector3[steps];
+
+        for (int i = 0; i < steps; i++)
+        {
+            float t = i * timeStep;
+            Vector3 pos = startPos + startVelocity * t + 0.5f * Physics.gravity * (t * t);
+
+            points[i] = pos;
+        }
+
+        return points;
+    }
 }
