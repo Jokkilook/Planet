@@ -91,7 +91,7 @@ public class GameManager : MonoBehaviour
     {
         if (scoreText != null)
         {
-            scoreText.text = "SCORE\n" + currentScore;
+            scoreText.text = "SCORE\n" + currentScore.ToString();
         }
     }
 

@@ -32,7 +32,7 @@ public class PlanetController : MonoBehaviour
         otherPlanet.isMerging = true;
 
         // 태양(레벨 9)인 경우
-        if (planetLevel == 9)
+        if (planetLevel == 8)
         {
             // 점수만 추가하고 두 태양 제거
             GameManager.Instance.AddScore(mergeScore);
