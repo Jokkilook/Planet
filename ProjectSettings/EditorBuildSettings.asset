@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 55daccc09a3b69647bbab145b54a3ab3
+  - enabled: 1
+    path: Assets/Scenes/StartScene.unity
+    guid: 3b045d166dcbf954ab3bd3e7b39112cf
+  - enabled: 1
+    path: Assets/JWY/Scene/Test_Scene.unity
+    guid: 7095e9877c1c0554bbabf54d8452bfa2
+  - enabled: 1
+    path: Assets/KSH/GravityScene.unity
+    guid: 5c7b4c1d8401ba549a6fa79cc6b15997
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}
