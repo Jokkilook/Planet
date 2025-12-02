@@ -1,6 +1,6 @@
 using UnityEngine;
 using TMPro;
-using UnityEngine.SceneManagement; // 씬 재시작을 위해 필요
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -8,103 +8,110 @@ public class GameManager : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI scoreText;
-    // 게임 오버 패널 변수 제거됨
+    [SerializeField] private TextMeshProUGUI timerText;
 
-    [Header("Game State")]
+    [Header("Game Settings")]
+    [SerializeField] private float gameDuration = 60f;
+
+    private float remainingTime; 
+    private float currentSessionTime = 0f; // 이번 판 플레이 시간
     private int currentScore = 0;
     private bool isGameOver = false;
 
     private void Awake()
     {
-        if (Instance == null)
-        {
-            Instance = this;
-        }
-        else
-        {
-            Destroy(gameObject);
-        }
+        if (Instance == null) Instance = this;
+        else Destroy(gameObject);
     }
 
     private void Start()
     {
-        UpdateScoreUI();
-
-        // 시간 정상화 및 상태 초기화
-        Time.timeScale = 1f;
+        remainingTime = gameDuration;
+        currentSessionTime = 0f; // 이번 판 시간 0초부터 시작
+        currentScore = 0;
         isGameOver = false;
+        Time.timeScale = 1f;
+
+        UpdateScoreUI();
     }
 
-    /// <summary>
-    /// 게임 오버 처리 (UI 없이 로직만 수행)
-    /// </summary>
+    private void Update()
+    {
+        if (isGameOver) return;
+
+        // 이번 판 플레이 시간 기록
+        currentSessionTime += Time.deltaTime;
+
+        // 타이머 로직
+        if (remainingTime > 0)
+        {
+            remainingTime -= Time.deltaTime;
+            UpdateTimerUI();
+
+            if (remainingTime <= 0)
+            {
+                remainingTime = 0;
+                GameOver();
+            }
+        }
+    }
+
     public void GameOver()
     {
         if (isGameOver) return;
         isGameOver = true;
 
-        Debug.Log("Game Over!"); // 콘솔에 로그만 출력
+        Debug.Log("Game Over!");
 
-        // 게임 정지 (물리 연산 및 시간 정지)
-        Time.timeScale = 0f;
+        // 1. 이번 판 점수 저장
+        PlayerPrefs.SetInt("LastScore", currentScore);
+
+        // 2. [핵심] 총 플레이 시간 누적 계산
+        // 기존에 저장되어 있던 총 시간을 불러옴 (없으면 0)
+        float previousTotalTime = PlayerPrefs.GetFloat("TotalPlayTime", 0f);
+        
+        // 기존 총 시간 + 이번 판 시간
+        float newTotalTime = previousTotalTime + currentSessionTime;
+        
+        // 합산된 시간을 다시 저장
+        PlayerPrefs.SetFloat("TotalPlayTime", newTotalTime);
+        PlayerPrefs.Save();
+
+        SceneManager.LoadScene("ResultScene");
     }
 
-    /// <summary>
-    /// 게임 재시작 (외부에서 호출 필요)
-    /// </summary>
+    // --- 기존 함수들은 그대로 유지 ---
     public void RestartGame()
     {
         Time.timeScale = 1f;
         isGameOver = false;
-        ResetScore();
-
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
-    /// <summary>
-    /// 두 행성을 합쳐서 다음 단계 행성 생성
-    /// </summary>
     public void MergePlanets(PlanetController planet1, PlanetController planet2)
     {
         if (isGameOver) return;
-
         GameObject nextPrefab = planet1.GetNextPlanetPrefab();
-
-        if (nextPrefab == null)
-        {
-            Debug.LogWarning("다음 단계 프리팹이 설정되지 않았습니다!");
-            return;
-        }
-
+        if (nextPrefab == null) return;
         Vector3 mergePosition = (planet1.transform.position + planet2.transform.position) / 2f;
-
+        
         Rigidbody rb1 = planet1.GetComponent<Rigidbody>();
         Rigidbody rb2 = planet2.GetComponent<Rigidbody>();
         Vector3 averageVelocity = Vector3.zero;
-
-        if (rb1 != null && rb2 != null)
-        {
-            averageVelocity = (rb1.linearVelocity + rb2.linearVelocity) / 2f;
-        }
+        if (rb1 != null && rb2 != null) averageVelocity = (rb1.linearVelocity + rb2.linearVelocity) / 2f;
 
         AddScore(planet1.GetMergeScore());
-
         Destroy(planet1.gameObject);
         Destroy(planet2.gameObject);
 
         GameObject newPlanet = Instantiate(nextPrefab, mergePosition, Quaternion.identity);
-
         Rigidbody newRb = newPlanet.GetComponent<Rigidbody>();
-        if (newRb != null)
-        {
-            newRb.linearVelocity = averageVelocity;
-        }
+        if (newRb != null) newRb.linearVelocity = averageVelocity;
     }
 
     public void AddScore(int score)
     {
         if (isGameOver) return;
-
         currentScore += score;
         UpdateScoreUI();
     }
@@ -112,19 +119,19 @@ public class GameManager : MonoBehaviour
     private void UpdateScoreUI()
     {
         if (scoreText != null)
+            scoreText.text = "SCORE : " + currentScore.ToString();
+    }
+
+    private void UpdateTimerUI()
+    {
+        if (timerText != null)
         {
-            scoreText.text = "SCORE\n" + currentScore.ToString();
+            int minutes = Mathf.FloorToInt(remainingTime / 60F);
+            int seconds = Mathf.FloorToInt(remainingTime % 60F);
+            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            
+            if (remainingTime <= 10f) timerText.color = Color.red;
+            else timerText.color = Color.white;
         }
-    }
-
-    public int GetCurrentScore()
-    {
-        return currentScore;
-    }
-
-    public void ResetScore()
-    {
-        currentScore = 0;
-        UpdateScoreUI();
     }
 }
