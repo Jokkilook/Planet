@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement; // 씬 재시작을 위해 필요
 
 public class GameManager : MonoBehaviour
 {
@@ -7,17 +8,17 @@ public class GameManager : MonoBehaviour
 
     [Header("UI References")]
     [SerializeField] private TextMeshProUGUI scoreText;
+    // 게임 오버 패널 변수 제거됨
 
     [Header("Game State")]
     private int currentScore = 0;
+    private bool isGameOver = false;
 
     private void Awake()
     {
-        // 싱글톤 패턴
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject);
         }
         else
         {
@@ -28,6 +29,36 @@ public class GameManager : MonoBehaviour
     private void Start()
     {
         UpdateScoreUI();
+
+        // 시간 정상화 및 상태 초기화
+        Time.timeScale = 1f;
+        isGameOver = false;
+    }
+
+    /// <summary>
+    /// 게임 오버 처리 (UI 없이 로직만 수행)
+    /// </summary>
+    public void GameOver()
+    {
+        if (isGameOver) return;
+        isGameOver = true;
+
+        Debug.Log("Game Over!"); // 콘솔에 로그만 출력
+
+        // 게임 정지 (물리 연산 및 시간 정지)
+        Time.timeScale = 0f;
+    }
+
+    /// <summary>
+    /// 게임 재시작 (외부에서 호출 필요)
+    /// </summary>
+    public void RestartGame()
+    {
+        Time.timeScale = 1f;
+        isGameOver = false;
+        ResetScore();
+
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 
     /// <summary>
@@ -35,39 +66,34 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void MergePlanets(PlanetController planet1, PlanetController planet2)
     {
-        // 다음 단계 프리팹 가져오기
+        if (isGameOver) return;
+
         GameObject nextPrefab = planet1.GetNextPlanetPrefab();
-        
+
         if (nextPrefab == null)
         {
             Debug.LogWarning("다음 단계 프리팹이 설정되지 않았습니다!");
             return;
         }
 
-        // 두 행성의 중간 위치 계산
         Vector3 mergePosition = (planet1.transform.position + planet2.transform.position) / 2f;
 
-        // 두 행성의 평균 속도 계산 (합쳐진 행성에 자연스럽게 적용)
         Rigidbody rb1 = planet1.GetComponent<Rigidbody>();
         Rigidbody rb2 = planet2.GetComponent<Rigidbody>();
         Vector3 averageVelocity = Vector3.zero;
-        
+
         if (rb1 != null && rb2 != null)
         {
             averageVelocity = (rb1.linearVelocity + rb2.linearVelocity) / 2f;
         }
 
-        // 점수 추가
         AddScore(planet1.GetMergeScore());
 
-        // 기존 행성 제거
         Destroy(planet1.gameObject);
         Destroy(planet2.gameObject);
 
-        // 새 행성 생성
         GameObject newPlanet = Instantiate(nextPrefab, mergePosition, Quaternion.identity);
 
-        // 새 행성에 속도 적용 (자연스러운 물리 효과)
         Rigidbody newRb = newPlanet.GetComponent<Rigidbody>();
         if (newRb != null)
         {
@@ -75,18 +101,14 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 점수 추가
-    /// </summary>
     public void AddScore(int score)
     {
+        if (isGameOver) return;
+
         currentScore += score;
         UpdateScoreUI();
     }
 
-    /// <summary>
-    /// 점수 UI 업데이트
-    /// </summary>
     private void UpdateScoreUI()
     {
         if (scoreText != null)
@@ -95,17 +117,11 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    /// <summary>
-    /// 현재 점수 반환
-    /// </summary>
     public int GetCurrentScore()
     {
         return currentScore;
     }
 
-    /// <summary>
-    /// 점수 초기화 (게임 재시작 시 사용)
-    /// </summary>
     public void ResetScore()
     {
         currentScore = 0;

@@ -7,6 +7,8 @@ public class PlanetController : MonoBehaviour
     [SerializeField] private int mergeScore = 10; // 합칠 때 얻는 점수
     [SerializeField] private GameObject nextPlanetPrefab; // 다음 단계 행성 프리팹
 
+    public bool HasEnteredOrbit { get; set; } = false;
+
     private bool isMerging = false; // 합치는 중 여부 (안전장치)
 
     private void OnCollisionEnter(Collision collision)

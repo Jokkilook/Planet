@@ -705,9 +705,13 @@ MonoBehaviour:
   innerRadius: 3
   innerStrength: 100
   innerDrag: 5
+  maxBoundaryRadius: 30
+  orbitCommitRadius: 20
   showGravityField: 1
   fieldColor: {r: 0.5, g: 0.5, b: 1, a: 0.3}
   innerFieldColor: {r: 1, g: 0.2, b: 0.2, a: 0.3}
+  boundaryColor: {r: 1, g: 0, b: 0, a: 0.5}
+  orbitCommitColor: {r: 1, g: 1, b: 0, a: 0.5}
   affectedLayers:
     serializedVersion: 2
     m_Bits: 4294967295
