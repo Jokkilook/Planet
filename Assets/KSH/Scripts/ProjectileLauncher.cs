@@ -4,7 +4,9 @@ using UnityEngine.InputSystem;
 public class ProjectileLauncher : MonoBehaviour
 {
     [Header("발사 설정")]
-    [SerializeField] private GameObject projectilePrefab;
+    // [수정] 단일 변수에서 배열로 변경했습니다. 인스펙터에서 Size를 3으로 하고 넣으시면 됩니다.
+    [SerializeField] private GameObject[] projectilePrefabs; 
+    
     [SerializeField] private float launchForceMultiplier = 10f;
     [SerializeField] private float maxLaunchForce = 50f;
     [SerializeField] private Transform launchPoint;
@@ -27,7 +29,6 @@ public class ProjectileLauncher : MonoBehaviour
         mainCamera = Camera.main;
         if (launchPoint == null) launchPoint = transform;
         
-        // Input System 디바이스 참조
         mouse = Mouse.current;
         keyboard = Keyboard.current;
         
@@ -55,10 +56,8 @@ public class ProjectileLauncher : MonoBehaviour
     {
         if (mouse == null || keyboard == null) return;
         
-        // 마우스 위치 업데이트
         currentMousePos = mouse.position.ReadValue();
         
-        // 마우스 왼쪽 버튼 클릭
         if (mouse.leftButton.wasPressedThisFrame)
         {
             StartDrag();
@@ -68,13 +67,11 @@ public class ProjectileLauncher : MonoBehaviour
             Launch();
         }
         
-        // ESC로 취소
         if (keyboard.escapeKey.wasPressedThisFrame && isDragging)
         {
             CancelDrag();
         }
         
-        // R키로 모든 발사체 제거
         if (keyboard.rKey.wasPressedThisFrame)
         {
             ClearAllProjectiles();
@@ -105,7 +102,10 @@ public class ProjectileLauncher : MonoBehaviour
         
         GameObject projectile = CreateProjectile();
         Rigidbody rb = projectile.GetComponent<Rigidbody>();
-        rb.linearVelocity = launchVelocity;
+        
+        // Unity 6 (2023.3+) 버전 호환 (linearVelocity)
+        // 구버전이라면 rb.velocity = launchVelocity; 로 사용하세요.
+        rb.linearVelocity = launchVelocity; 
         
         Destroy(projectile, 30f);
         CancelDrag();
@@ -115,12 +115,16 @@ public class ProjectileLauncher : MonoBehaviour
     {
         GameObject projectile;
         
-        if (projectilePrefab != null)
+        // [수정] 배열이 비어있지 않은지 확인하고 랜덤 선택
+        if (projectilePrefabs != null && projectilePrefabs.Length > 0)
         {
-            projectile = Instantiate(projectilePrefab, launchPoint.position, Quaternion.identity);
+            // 0부터 배열 길이 사이의 랜덤한 정수 선택
+            int randomIndex = Random.Range(0, projectilePrefabs.Length);
+            projectile = Instantiate(projectilePrefabs[randomIndex], launchPoint.position, Quaternion.identity);
         }
         else
         {
+            // 프리팹이 하나도 연결 안 되어 있을 때 기본 구체 생성 (에러 방지용)
             projectile = GameObject.CreatePrimitive(PrimitiveType.Sphere);
             projectile.transform.position = launchPoint.position;
             projectile.transform.localScale = Vector3.one * 0.3f;
@@ -146,7 +150,6 @@ public class ProjectileLauncher : MonoBehaviour
         
         float force = Mathf.Min(dragVector.magnitude / Screen.height * launchForceMultiplier, maxLaunchForce);
         
-        // 2D 드래그를 3D 방향으로 변환
         Vector3 direction = new Vector3(dragVector.x, dragVector.y, dragVector.y).normalized;
         direction = mainCamera.transform.TransformDirection(direction);
         
@@ -167,7 +170,6 @@ public class ProjectileLauncher : MonoBehaviour
             points[i] = currentPos;
             currentPos += currentVel * timeStep;
             
-            // 중력장 영향 시뮬레이션
             GravityField[] fields = FindObjectsOfType<GravityField>();
             foreach (var field in fields)
             {
