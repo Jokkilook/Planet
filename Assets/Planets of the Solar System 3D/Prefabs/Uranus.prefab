@@ -9,11 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4799057029891002}
-  - component: {fileID: 205004119987537650}
   - component: {fileID: 1075034882336646565}
   - component: {fileID: 5911138594517448706}
   - component: {fileID: 5088181073671546250}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Uranus
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -38,32 +37,6 @@ Transform:
   - {fileID: 4219666328080098}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205004119987537650
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1014736895960144}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 3.57
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.09367456
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23902560763223264}
-    - renderer: {fileID: 199222409386027376}
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.018126301
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23179924293987222}
-    - renderer: {fileID: 199222409386027376}
-  m_Enabled: 1
 --- !u!135 &1075034882336646565
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -77,7 +50,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -92,10 +65,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1014736895960144}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -138,7 +111,7 @@ GameObject:
   - component: {fileID: 4273197762250818}
   - component: {fileID: 198723251553117492}
   - component: {fileID: 199222409386027376}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4916,6 +4889,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4937,6 +4912,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4983,7 +4959,7 @@ GameObject:
   - component: {fileID: 4219666328080098}
   - component: {fileID: 33610712520644632}
   - component: {fileID: 23179924293987222}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Uranus_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5033,6 +5009,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5054,6 +5032,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5069,7 +5048,7 @@ GameObject:
   - component: {fileID: 4107349934366502}
   - component: {fileID: 33191563937313708}
   - component: {fileID: 23902560763223264}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Uranus
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5119,6 +5098,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5140,6 +5121,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

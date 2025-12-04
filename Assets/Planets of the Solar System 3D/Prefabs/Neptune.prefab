@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4885312797253666}
   - component: {fileID: 33535854673712314}
   - component: {fileID: 23921463290005256}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Neptune
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +84,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -97,7 +100,7 @@ GameObject:
   - component: {fileID: 4198155277423740}
   - component: {fileID: 33255558271150980}
   - component: {fileID: 23864177615755696}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Neptune_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -147,6 +150,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -168,6 +173,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -183,7 +189,7 @@ GameObject:
   - component: {fileID: 4223518549142610}
   - component: {fileID: 198381265653177096}
   - component: {fileID: 199963352071329394}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4961,6 +4967,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4982,6 +4990,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5026,11 +5035,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4431810912100570}
-  - component: {fileID: 205193830370473872}
   - component: {fileID: 6180789847588500435}
   - component: {fileID: 6597274933160677985}
   - component: {fileID: 2521797704666106024}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Neptune
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -5055,31 +5063,6 @@ Transform:
   - {fileID: 4198155277423740}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205193830370473872
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1610884164528438}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 3.57
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.0953139
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23921463290005256}
-    - renderer: {fileID: 199963352071329394}
-  - screenRelativeHeight: 0.015296966
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23864177615755696}
-    - renderer: {fileID: 199963352071329394}
-  m_Enabled: 1
 --- !u!135 &6180789847588500435
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5093,7 +5076,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -5108,10 +5091,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1610884164528438}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}

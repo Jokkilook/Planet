@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4107099532016240}
   - component: {fileID: 33784520787215656}
   - component: {fileID: 23488608054462962}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pluto
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +84,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -97,7 +100,7 @@ GameObject:
   - component: {fileID: 4039965777609342}
   - component: {fileID: 198562784502088402}
   - component: {fileID: 199697089879741776}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,6 +4878,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4897,6 +4902,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4943,7 +4949,7 @@ GameObject:
   - component: {fileID: 4831655231394650}
   - component: {fileID: 33507180068207342}
   - component: {fileID: 23360761938156044}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Pluto_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4993,6 +4999,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5014,6 +5022,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5027,11 +5036,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4103310470163434}
-  - component: {fileID: 205659358378571548}
   - component: {fileID: 4197536903836104266}
-  - component: {fileID: 885580977550913615}
   - component: {fileID: 7305633763268427832}
-  m_Layer: 0
+  - component: {fileID: 885580977550913615}
+  m_Layer: 7
   m_Name: Pluto
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -5056,31 +5064,6 @@ Transform:
   - {fileID: 4831655231394650}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205659358378571548
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901559596380486}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 3.57
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.09696733
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23488608054462962}
-    - renderer: {fileID: 199697089879741776}
-  - screenRelativeHeight: 0.02446401
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23360761938156044}
-    - renderer: {fileID: 199697089879741776}
-  m_Enabled: 1
 --- !u!135 &4197536903836104266
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5094,7 +5077,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -5102,21 +5085,6 @@ SphereCollider:
   serializedVersion: 3
   m_Radius: 1
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &885580977550913615
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1901559596380486}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 148eaebffb36dbc419ed18d3b879a76e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  planetLevel: 1
-  mergeScore: 20
-  nextPlanetPrefab: {fileID: 1288793558353234, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}
 --- !u!54 &7305633763268427832
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -5124,10 +5092,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1901559596380486}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -5144,3 +5112,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &885580977550913615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1901559596380486}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 148eaebffb36dbc419ed18d3b879a76e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  planetLevel: 1
+  mergeScore: 20
+  nextPlanetPrefab: {fileID: 1288793558353234, guid: 1818e1a170ef94c3aacee2ba50057521, type: 3}

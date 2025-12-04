@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4466284464023632}
   - component: {fileID: 33184396467009354}
   - component: {fileID: 23349094631189316}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Saturn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +84,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -95,11 +98,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4677324220665258}
-  - component: {fileID: 205182777401487052}
   - component: {fileID: 7568472841969023686}
   - component: {fileID: 2539604539257777447}
   - component: {fileID: 7303490910483379612}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Saturn
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -125,33 +127,6 @@ Transform:
   - {fileID: 4447883719993606}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205182777401487052
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1377197793697218}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0.00000047683716}
-  m_Size: 4
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.10201206
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23349094631189316}
-    - renderer: {fileID: 199907745297058340}
-    - renderer: {fileID: 23162402637312718}
-  - screenRelativeHeight: 0.02560832
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23506883498154470}
-    - renderer: {fileID: 23162402637312718}
-    - renderer: {fileID: 199907745297058340}
-  m_Enabled: 1
 --- !u!135 &7568472841969023686
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -165,7 +140,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -180,10 +155,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1377197793697218}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -226,7 +201,7 @@ GameObject:
   - component: {fileID: 4930533242190828}
   - component: {fileID: 198896672310763414}
   - component: {fileID: 199907745297058340}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5004,6 +4979,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5026,6 +5003,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5072,7 +5050,7 @@ GameObject:
   - component: {fileID: 4277827671834268}
   - component: {fileID: 33249797814571482}
   - component: {fileID: 23162402637312718}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ring
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5122,6 +5100,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5143,6 +5123,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5158,7 +5139,7 @@ GameObject:
   - component: {fileID: 4447883719993606}
   - component: {fileID: 33234295203908528}
   - component: {fileID: 23506883498154470}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Saturn_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5208,6 +5189,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5229,6 +5212,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4801891049849614}
   - component: {fileID: 33097238618319898}
   - component: {fileID: 23557692965381650}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mercury_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -61,6 +61,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -82,6 +84,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -97,7 +100,7 @@ GameObject:
   - component: {fileID: 4567171199259086}
   - component: {fileID: 198604783834190402}
   - component: {fileID: 199956874217308870}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4875,6 +4878,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4896,6 +4901,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4942,7 +4948,7 @@ GameObject:
   - component: {fileID: 4140277866429110}
   - component: {fileID: 33324424768109588}
   - component: {fileID: 23277255578292572}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mercury
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4992,6 +4998,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5013,6 +5021,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5026,9 +5035,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4620931210112870}
-  - component: {fileID: 205527854345052348}
   - component: {fileID: 2366119673273863367}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mercury
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -5053,31 +5061,6 @@ Transform:
   - {fileID: 4801891049849614}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205527854345052348
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1856687845478954}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 4.2799997
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.146929
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23277255578292572}
-    - renderer: {fileID: 199956874217308870}
-  - screenRelativeHeight: 0.02560832
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23557692965381650}
-    - renderer: {fileID: 199956874217308870}
-  m_Enabled: 1
 --- !u!135 &2366119673273863367
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5091,7 +5074,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0

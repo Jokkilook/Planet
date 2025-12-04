@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4262619043198982}
   - component: {fileID: 198962722563259096}
   - component: {fileID: 199131918321748202}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4789,6 +4789,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4810,6 +4812,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4856,7 +4859,7 @@ GameObject:
   - component: {fileID: 4532541069739506}
   - component: {fileID: 33115170397982128}
   - component: {fileID: 23793970008372544}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jupiter_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4906,6 +4909,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4927,6 +4932,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4940,11 +4946,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4030326048459444}
-  - component: {fileID: 205751706758944436}
   - component: {fileID: 6518462326645541621}
   - component: {fileID: 3755840837981731873}
   - component: {fileID: 5024310172332214829}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jupiter
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -4969,31 +4974,6 @@ Transform:
   - {fileID: 4532541069739506}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205751706758944436
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1526814149960808}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 3.57
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.12533593
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23340741358459038}
-    - renderer: {fileID: 199131918321748202}
-  - screenRelativeHeight: 0.02446401
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23793970008372544}
-    - renderer: {fileID: 199131918321748202}
-  m_Enabled: 1
 --- !u!135 &6518462326645541621
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5007,7 +4987,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -5022,10 +5002,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1526814149960808}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -5068,7 +5048,7 @@ GameObject:
   - component: {fileID: 4349984063913474}
   - component: {fileID: 33023636874344422}
   - component: {fileID: 23340741358459038}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Jupiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5118,6 +5098,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5139,6 +5121,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

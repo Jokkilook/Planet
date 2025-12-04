@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4622294277052950}
   - component: {fileID: 198982321679544750}
   - component: {fileID: 199585147326065124}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4789,6 +4789,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4810,6 +4812,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4854,11 +4857,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4387678931267766}
-  - component: {fileID: 205528198418929460}
   - component: {fileID: 6789804957547789107}
   - component: {fileID: 4251027517168852144}
   - component: {fileID: 7967433873083165548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mars
   m_TagString: TrackingObject
   m_Icon: {fileID: 0}
@@ -4883,31 +4885,6 @@ Transform:
   - {fileID: 4696033646309244}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205528198418929460
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1288793558353234}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0}
-  m_Size: 4.2799997
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.10201206
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23814069265243434}
-    - renderer: {fileID: 199585147326065124}
-  - screenRelativeHeight: 0.019119713
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23029203783053510}
-    - renderer: {fileID: 199585147326065124}
-  m_Enabled: 1
 --- !u!135 &6789804957547789107
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -4921,7 +4898,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -4936,10 +4913,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1288793558353234}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -4982,7 +4959,7 @@ GameObject:
   - component: {fileID: 4995073036599356}
   - component: {fileID: 33386941979443122}
   - component: {fileID: 23814069265243434}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mars
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5032,6 +5009,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5053,6 +5032,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -5068,7 +5048,7 @@ GameObject:
   - component: {fileID: 4696033646309244}
   - component: {fileID: 33680731411982074}
   - component: {fileID: 23029203783053510}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Mars_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5118,6 +5098,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5139,6 +5121,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

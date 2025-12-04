@@ -30,15 +30,17 @@ TagManager:
   - SamplesInfoPanel
   - QDSUIToggleCheckboxRadio
   - Projectile
+  - TrackingObject
+  - Actors
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - Overlay UI
   - Water
   - UI
-  - 
-  - 
+  - Player
+  - Planet
   - 
   - 
   - 

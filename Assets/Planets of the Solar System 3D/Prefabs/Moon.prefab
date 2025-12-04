@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4743709103564672}
   - component: {fileID: 198040655577477136}
   - component: {fileID: 199940970818216614}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Glow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4789,6 +4789,8 @@ ParticleSystemRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4810,6 +4812,7 @@ ParticleSystemRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4856,7 +4859,7 @@ GameObject:
   - component: {fileID: 4128824095967350}
   - component: {fileID: 33203147953996400}
   - component: {fileID: 23857910435866848}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Moon_Lod
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4906,6 +4909,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -4927,6 +4932,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
@@ -4940,11 +4946,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4693579709242440}
-  - component: {fileID: 205066459857805224}
   - component: {fileID: 6353123651212667173}
   - component: {fileID: 6181457807583283541}
   - component: {fileID: 4421259470079220741}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4969,32 +4974,6 @@ Transform:
   - {fileID: 4128824095967350}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!205 &205066459857805224
-LODGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1408581670749804}
-  serializedVersion: 2
-  m_LocalReferencePoint: {x: 0, y: 0, z: 0.00000047683716}
-  m_Size: 4
-  m_FadeMode: 0
-  m_AnimateCrossFading: 0
-  m_LastLODIsBillboard: 0
-  m_LODs:
-  - screenRelativeHeight: 0.35127214
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23811930558839548}
-    - renderer: {fileID: 199940970818216614}
-    - renderer: {fileID: 0}
-  - screenRelativeHeight: 0.022250842
-    fadeTransitionWidth: 0
-    renderers:
-    - renderer: {fileID: 23857910435866848}
-    - renderer: {fileID: 0}
-  m_Enabled: 1
 --- !u!135 &6353123651212667173
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -5008,7 +4987,7 @@ SphereCollider:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   m_LayerOverridePriority: 0
   m_IsTrigger: 0
   m_ProvidesContacts: 0
@@ -5023,10 +5002,10 @@ Rigidbody:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408581670749804}
-  serializedVersion: 4
+  serializedVersion: 5
   m_Mass: 1
-  m_Drag: 0
-  m_AngularDrag: 0.05
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -5038,7 +5017,7 @@ Rigidbody:
     m_Bits: 0
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
-  m_UseGravity: 1
+  m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
@@ -5069,7 +5048,7 @@ GameObject:
   - component: {fileID: 4678793919378768}
   - component: {fileID: 33110794514905866}
   - component: {fileID: 23811930558839548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Moon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5119,6 +5098,8 @@ MeshRenderer:
   m_RayTracingAccelStructBuildFlagsOverride: 0
   m_RayTracingAccelStructBuildFlags: 1
   m_SmallMeshCulling: 1
+  m_ForceMeshLod: -1
+  m_MeshLodSelectionBias: 0
   m_RenderingLayerMask: 4294967295
   m_RendererPriority: 0
   m_Materials:
@@ -5140,6 +5121,7 @@ MeshRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
+  m_GlobalIlluminationMeshLod: 0
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 public class PlanetShooter : MonoBehaviour
 {
     public Transform bandCenter;
-    public GameObject projectilePrefab;
+    public List<GameObject> projectilePrefabList;
     public float powerMultiplier = 10f;
     public int maxProjectiles = 10;
 
@@ -18,7 +18,8 @@ public class PlanetShooter : MonoBehaviour
         // 간단한 Object Pool 생성
         for (int i = 0; i < maxProjectiles; i++)
         {
-            GameObject obj = Instantiate(projectilePrefab);
+            int index = Random.Range(0, projectilePrefabList.Count);
+            GameObject obj = Instantiate(projectilePrefabList[index]);
             obj.SetActive(false);
             projectilePool.Enqueue(obj.GetComponent<Rigidbody>());
         }
@@ -40,8 +41,13 @@ public class PlanetShooter : MonoBehaviour
         float force = tension * powerMultiplier;
         rb.AddForce(direction * force, ForceMode.Impulse);
 
+        int index = Random.Range(0, projectilePrefabList.Count);
+        GameObject obj = Instantiate(projectilePrefabList[index]);
+        obj.SetActive(false);
+        projectilePool.Enqueue(obj.GetComponent<Rigidbody>());
+
         // 3초 후 비활성화 (풀 복귀)
-        StartCoroutine(ReturnToPool(rb, 3f));
+        //StartCoroutine(ReturnToPool(rb, 3f));
     }
 
     System.Collections.IEnumerator ReturnToPool(Rigidbody rb, float delay)
