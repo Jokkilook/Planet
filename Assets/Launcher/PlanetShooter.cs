@@ -23,6 +23,8 @@ public class PlanetShooter : MonoBehaviour
             obj.SetActive(false);
             projectilePool.Enqueue(obj.GetComponent<Rigidbody>());
         }
+
+        projectilePool.Peek();
     }
 
     void HandleRelease(float tension, Vector3 centerPos, Vector3 pullPos)

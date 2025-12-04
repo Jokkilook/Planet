@@ -45,14 +45,14 @@ public class GameManager : MonoBehaviour
         // 타이머 로직
         if (remainingTime > 0)
         {
-            remainingTime -= Time.deltaTime;
+            remainingTime += Time.deltaTime;
             UpdateTimerUI();
 
-            if (remainingTime <= 0)
-            {
-                remainingTime = 0;
-                GameOver();
-            }
+            // if (remainingTime <= 0)
+            // {
+            //     remainingTime = 0;
+            //     GameOver();
+            // }
         }
     }
 
@@ -126,8 +126,8 @@ public class GameManager : MonoBehaviour
     {
         if (timerText != null)
         {
-            int minutes = Mathf.FloorToInt(remainingTime / 60F);
-            int seconds = Mathf.FloorToInt(remainingTime % 60F);
+            int minutes = Mathf.FloorToInt(currentSessionTime / 60F);
+            int seconds = Mathf.FloorToInt(currentSessionTime % 60F);
             timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
             
             if (remainingTime <= 10f) timerText.color = Color.red;
