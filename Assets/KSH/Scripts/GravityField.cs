@@ -26,6 +26,8 @@ public class GravityField : MonoBehaviour
     [SerializeField] private Color innerFieldColor = new Color(1f, 0.2f, 0.2f, 0.3f);
     [SerializeField] private Color boundaryColor = new Color(1f, 0f, 0f, 0.5f); // 게임오버 라인 색상
     [SerializeField] private Color orbitCommitColor = new Color(1f, 1f, 0f, 0.5f); // 궤도 진입 라인 색상
+    [SerializeField] private GameObject orbitCommitVisualPrefab;
+    private GameObject orbitCommitVisualInstance;
 
     [Header("성능")]
     [SerializeField] private LayerMask affectedLayers = -1;
@@ -41,7 +43,26 @@ public class GravityField : MonoBehaviour
         }
         triggerCollider.isTrigger = true;
         triggerCollider.radius = gravityRadius;
+
+        // ★ 시각화용 Mesh 생성
+        if (orbitCommitVisualPrefab != null)
+        {
+            orbitCommitVisualInstance = Instantiate(orbitCommitVisualPrefab, transform.position, Quaternion.identity);
+            orbitCommitVisualInstance.transform.SetParent(transform);
+            UpdateOrbitCommitVisual();
+        }
     }
+
+    private void UpdateOrbitCommitVisual()
+    {
+        if (orbitCommitVisualInstance == null) return;
+
+        // Sphere 기본 크기가 반지름 0.5m이므로 보정 필요
+        float scale = orbitCommitRadius * 2f;
+
+        orbitCommitVisualInstance.transform.localScale = new Vector3(scale, scale, scale);
+    }
+    
 
     void FixedUpdate()
     {
