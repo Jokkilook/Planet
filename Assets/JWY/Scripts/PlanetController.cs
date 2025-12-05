@@ -2,14 +2,27 @@ using UnityEngine;
 
 public class PlanetController : MonoBehaviour
 {
-[Header("Planet Settings")]
+    [Header("Planet Settings")]
     [SerializeField] private int planetLevel = 0; // 0~9 (9 = 태양)
     [SerializeField] private int mergeScore = 10; // 합칠 때 얻는 점수
     [SerializeField] private GameObject nextPlanetPrefab; // 다음 단계 행성 프리팹
 
+    [Header("Sound Settings")]
+    [SerializeField] private AudioClip mergeSound;  // 합쳐질 때 재생할 소리
+    [SerializeField] private float mergeVolume = 1.0f;
+
+private AudioSource audioSource;
+
     public bool HasEnteredOrbit { get; set; } = false;
 
     private bool isMerging = false; // 합치는 중 여부 (안전장치)
+
+    void Start()
+    {
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1f; // VR 3D 공간에서 자연스럽게 들리도록
+    }
 
     private void OnCollisionEnter(Collision collision)
     {
@@ -45,6 +58,17 @@ public class PlanetController : MonoBehaviour
         {
             // 일반 행성 합치기
             GameManager.Instance.MergePlanets(this, otherPlanet);
+        }
+
+        // 🔥 합쳐지는 순간 소리 재생
+        PlayMergeSound();
+    }
+
+    private void PlayMergeSound()
+    {
+        if (mergeSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(mergeSound, mergeVolume);
         }
     }
 

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 
 public class PlanetShooter : MonoBehaviour
 {
+    [Header("Audio")]
+    public AudioClip shootSound;
+    public float shootVolume = 1.0f;
+
+    private AudioSource audioSource;
+
     public Transform bandCenter;
     public List<GameObject> projectilePrefabList;
     public float powerMultiplier = 10f;
@@ -29,6 +35,12 @@ public class PlanetShooter : MonoBehaviour
 
             projectilePool.Enqueue(prefab); 
         }
+
+        // ★ AudioSource 자동 생성
+        audioSource = gameObject.AddComponent<AudioSource>();
+        audioSource.playOnAwake = false;
+        audioSource.spatialBlend = 1.0f;  // VR/3D 공간에서 들리게
+        audioSource.volume = shootVolume;
 
         UpdatePreview();
     }
@@ -83,6 +95,10 @@ public class PlanetShooter : MonoBehaviour
 
         Vector3 dir = (centerPos - pullPos).normalized;
         rb.AddForce(dir * (tension * powerMultiplier), ForceMode.Impulse);
+
+        // ★ 발사 소리 재생
+        if (shootSound != null)
+            audioSource.PlayOneShot(shootSound, shootVolume);
 
         // 새 프리팹을 다시 큐에 넣기
         int index = Random.Range(0, projectilePrefabList.Count);

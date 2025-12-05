@@ -1,2 +1,13 @@
 fileFormatVersion: 2
 guid: 148eaebffb36dbc419ed18d3b879a76e
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - nextPlanetPrefab: {instanceID: 0}
+  - mergeSound: {fileID: 8300000, guid: 596ad1be28ca435479303eea92ca1b4c, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
