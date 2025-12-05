@@ -119,7 +119,7 @@ public class GameManager : MonoBehaviour
     private void UpdateScoreUI()
     {
         if (scoreText != null)
-            scoreText.text = "SCORE : " + currentScore.ToString();
+            scoreText.text = "SCORE\n" + currentScore.ToString();
     }
 
     private void UpdateTimerUI()
@@ -128,7 +128,7 @@ public class GameManager : MonoBehaviour
         {
             int minutes = Mathf.FloorToInt(currentSessionTime / 60F);
             int seconds = Mathf.FloorToInt(currentSessionTime % 60F);
-            timerText.text = string.Format("{0:00}:{1:00}", minutes, seconds);
+            timerText.text = "PLAY TIME\n" + string.Format("{0:00}:{1:00}", minutes, seconds);
             
             if (remainingTime <= 10f) timerText.color = Color.red;
             else timerText.color = Color.white;

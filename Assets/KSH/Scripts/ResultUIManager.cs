@@ -14,7 +14,7 @@ public class ResultUIManager : MonoBehaviour
         int lastScore = PlayerPrefs.GetInt("LastScore", 0);
         if (finalScoreText != null)
         {
-            finalScoreText.text = "Final Score\n" + "   " + lastScore.ToString();
+            finalScoreText.text = "FINAL SCORE\n" + lastScore.ToString();
         }
 
         // 2. [수정] 누적 총 플레이 시간 표시
@@ -29,7 +29,7 @@ public class ResultUIManager : MonoBehaviour
             int seconds = Mathf.FloorToInt(totalTime % 60F);
 
             // Total Time : 125:40 (총 125분 40초 플레이함)
-            totalPlayTimeText.text = string.Format("Total Time\n" + "  {0:00}:{1:00}", minutes, seconds);
+            totalPlayTimeText.text = string.Format("PLAY TIME\n" + "{0:00}:{1:00}", minutes, seconds);
         }
         
         Cursor.visible = true;
