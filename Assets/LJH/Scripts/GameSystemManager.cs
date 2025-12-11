@@ -3,7 +3,22 @@ using UnityEngine.SceneManagement;
 
 public class GameSystemManager : MonoBehaviour
 {
+    [Header("Scene Settings")]
+    public string nextSceneName = "GravityScene";
+
     public void GoToNextScene()
+    {
+        if (!string.IsNullOrEmpty(nextSceneName))
+        {
+            SceneManager.LoadScene(nextSceneName);
+        }
+        else
+        {
+            Debug.LogError("nextSceneNameError");
+        }
+    }
+
+    public void GoToStartScene()
     {
         SceneManager.LoadScene("GravityScene");
     }
