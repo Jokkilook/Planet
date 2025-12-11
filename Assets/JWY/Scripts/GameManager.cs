@@ -63,18 +63,12 @@ public class GameManager : MonoBehaviour
 
         Debug.Log("Game Over!");
 
-        // 1. 이번 판 점수 저장
+        // 점수 저장
         PlayerPrefs.SetInt("LastScore", currentScore);
 
-        // 2. [핵심] 총 플레이 시간 누적 계산
-        // 기존에 저장되어 있던 총 시간을 불러옴 (없으면 0)
-        float previousTotalTime = PlayerPrefs.GetFloat("TotalPlayTime", 0f);
-        
-        // 기존 총 시간 + 이번 판 시간
-        float newTotalTime = previousTotalTime + currentSessionTime;
-        
-        // 합산된 시간을 다시 저장
-        PlayerPrefs.SetFloat("TotalPlayTime", newTotalTime);
+        PlayerPrefs.SetFloat("LastPlayTime", currentSessionTime);
+
+        // 저장 확정
         PlayerPrefs.Save();
 
         SceneManager.LoadScene("ResultScene");
