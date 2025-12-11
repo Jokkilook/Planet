@@ -96,7 +96,9 @@ public class PullPointController : MonoBehaviour
 
         foreach (var mb in interactors)
         {
-            if (mb is IInteractorView)
+            if (mb is IInteractorView
+                || mb.GetType().Name.Contains("HandGrabInteractor")
+                || mb.GetType().Name.Contains("HandPointer"))
             {
                 Transform t = mb.transform;
                 float d = Vector3.Distance(t.position, transform.position);
